@@ -1,9 +1,13 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import styles from '../styles/layout.module.css'
 import Link from 'next/link'
 import { getMobileOperatingSystem } from '../util/constants'
 
 export default function Layout({ children }: React.PropsWithChildren<unknown>): ReactElement {
+  const [isIos, setIsIos] = useState(false)
+  useEffect(() => {
+    setIsIos(getMobileOperatingSystem() == 'ios')
+  }, [])
   return (
     <div className="">
       <div className={`fixed inset-0 ${styles.scaffoldGradient}`}>
@@ -41,7 +45,7 @@ export default function Layout({ children }: React.PropsWithChildren<unknown>): 
 
       <div className="fixed shadow-md bottom-6 rounded-2xl bg-white p-4 text-center left-6 right-6">
         <div className="pb-2 font-bold">Download the App now!</div>
-        {getMobileOperatingSystem() == 'ios' ? (
+        {isIos ? (
           <a
             href="https://apps.apple.com/us/app/spot-videos/id1564675926?utm_source=website&utm_campaign=static"
             target="blank"

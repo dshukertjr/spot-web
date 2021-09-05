@@ -38,7 +38,7 @@ export default function VideoComponent({
     <div className="relative my-12 rounded-xl overflow-hidden  aspect-w-9 aspect-h-16">
       <div>
         <video
-          autoPlay
+          autoPlay={autoPlay}
           muted
           ref={videoRef}
           className="object-cover absolute inset-0"

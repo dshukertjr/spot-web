@@ -36,7 +36,7 @@ export default function Layout({ children }: React.PropsWithChildren<unknown>): 
         </Link>
       </header>
 
-      <main className="overflow-auto w-full h-full px-6 py-10">{children}</main>
+      <main className="relative overflow-auto w-full h-full px-6 py-10">{children}</main>
 
       <div className="fixed shadow-md bottom-6 rounded-2xl bg-white p-4 text-center left-6 right-6">
         <div className="pb-2 font-bold">Download the App now!</div>

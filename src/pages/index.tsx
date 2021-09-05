@@ -17,9 +17,17 @@ export default function Home({ videos }: { videos: Video[] }): ReactElement {
       </Head>
 
       <Layout>
-        {videos.map((video) => {
-          return <VideoComponent key={video.id} video={video}></VideoComponent>
-        })}
+        <div className="md:flex md:flex-wrap">
+          {videos.map((video) => {
+            return (
+              <div key={video.id} className="md:flex-grow md:w-1/2">
+                <div className="md:w-5/6">
+                  <VideoComponent video={video}></VideoComponent>
+                </div>
+              </div>
+            )
+          })}
+        </div>
       </Layout>
     </div>
   )

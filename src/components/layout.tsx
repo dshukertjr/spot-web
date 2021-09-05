@@ -33,9 +33,30 @@ export default function Layout({ children }: React.PropsWithChildren<unknown>): 
         />
       </div>
 
-      <main className="relative overflow-auto w-full h-full px-6 py-10">{children}</main>
+      <main className={`relative overflow-auto w-full h-full px-6 py-10 ${styles.mainContents}`}>
+        {children}
+      </main>
 
-      <header className="fixed left-4 top-4">
+      <div className="hidden md:block fixed top-1/2 left-12 right-1/2 -mt-32">
+        <img src="/img/phrase.svg" alt="Share your Monent right at your Location" />
+        <div className="flex pt-12">
+          <a
+            className="block mr-8"
+            href="https://apps.apple.com/us/app/spot-videos/id1564675926?utm_source=website&utm_campaign=static"
+            target="blank"
+          >
+            <img className="block h-12" src="/img/ios.svg" alt="App Store download button" />
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=app.spotvideo&utm_source=website&utm_campaign=static"
+            target="blank"
+          >
+            <img className="block h-12" src="/img/android.svg" alt="Google Play download button" />
+          </a>
+        </div>
+      </div>
+
+      <header className="fixed left-4 top-4 md:left-12 md:top-8">
         <Link href="/">
           <a>
             <img className="w-20" src="/img/logo.svg" alt="Spot logo" />
@@ -43,7 +64,7 @@ export default function Layout({ children }: React.PropsWithChildren<unknown>): 
         </Link>
       </header>
 
-      <div className="fixed shadow-md bottom-6 rounded-2xl bg-white p-4 text-center left-6 right-6">
+      <div className="fixed shadow-md bottom-6 rounded-2xl bg-white p-4 text-center left-6 right-6 md:hidden">
         <div className="pb-2 font-bold">Download the App now!</div>
         {isIos ? (
           <a

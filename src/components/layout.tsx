@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react'
 import styles from '../styles/layout.module.css'
 import Link from 'next/link'
+import { getMobileOperatingSystem } from '../util/constants'
 
 export default function Layout({ children }: React.PropsWithChildren<unknown>): ReactElement {
   return (
@@ -40,12 +41,25 @@ export default function Layout({ children }: React.PropsWithChildren<unknown>): 
 
       <div className="fixed shadow-md bottom-6 rounded-2xl bg-white p-4 text-center left-6 right-6">
         <div className="pb-2 font-bold">Download the App now!</div>
-        <a
-          href="https://apps.apple.com/us/app/spot-videos/id1564675926?utm_source=website&utm_campaign=static"
-          target="blank"
-        >
-          <img className="block m-auto" src="/img/ios.svg" alt="App Store download button" />
-        </a>
+        {getMobileOperatingSystem() == 'ios' ? (
+          <a
+            href="https://apps.apple.com/us/app/spot-videos/id1564675926?utm_source=website&utm_campaign=static"
+            target="blank"
+          >
+            <img className="block m-auto" src="/img/ios.svg" alt="App Store download button" />
+          </a>
+        ) : (
+          <a
+            href="https://play.google.com/store/apps/details?id=app.spotvideo&utm_source=website&utm_campaign=static"
+            target="blank"
+          >
+            <img
+              className="block m-auto"
+              src="/img/android.svg"
+              alt="Google Play download button"
+            />
+          </a>
+        )}
       </div>
     </div>
   )

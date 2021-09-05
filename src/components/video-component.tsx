@@ -41,7 +41,7 @@ export default function VideoComponent({
           autoPlay={autoPlay}
           muted
           ref={videoRef}
-          className="object-cover absolute inset-0"
+          className="object-cover absolute inset-0 h-full"
           src={video.url}
         ></video>
         <div className="absolute left-0 bottom-0 text-white p-2 bg-opacity-20 bg-black rounded-xl">

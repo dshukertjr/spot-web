@@ -31,7 +31,7 @@ export default function Home({ videos }: { videos: Video[] }): ReactElement {
           name="twitter:description"
           content="Open source map based video sharing social app created with Flutter, Supabase and lots of love."
         />
-        <meta name="twitter:image" content={`${SITE_URL}/spot.jpg`} />
+        <meta name="twitter:image" content={`${SITE_URL}/img/spot.jpg`} />
       </Head>
 
       <Layout>

@@ -2,7 +2,7 @@
 
 export const SITE_NAME = 'Spot'
 
-export const SITE_URL = 'https://spotvideo.app/'
+export const SITE_URL = 'https://spotvideo.app'
 
 /**
  * Determine the mobile operating system.

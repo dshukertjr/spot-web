@@ -29,6 +29,11 @@ export default function Post({ video }: { video: Video }): ReactElement {
         <meta property="og:site_name" content={SITE_NAME} key="ogsitename" />
         <meta property="og:title" content={SITE_NAME} key="ogtitle" />
         <meta property="og:description" content={video.description} key="ogdesc" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@dshukertjr" />
+        <meta name="twitter:title" content={SITE_NAME} />
+        <meta name="twitter:description" content={video.description} />
+        <meta name="twitter:image" content={video.image_url} />
       </Head>
 
       <Layout>

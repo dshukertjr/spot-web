@@ -21,9 +21,17 @@ export default function Home({ videos }: { videos: Video[] }): ReactElement {
         <meta property="og:title" content={SITE_NAME} key="ogtitle" />
         <meta
           property="og:description"
-          content="Open source map based video sharing social app created with Flutter, Supabase and lots of love"
+          content="Open source map based video sharing social app created with Flutter, Supabase and lots of love."
           key="ogdesc"
+        />{' '}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@dshukertjr" />
+        <meta name="twitter:title" content={SITE_NAME} />
+        <meta
+          name="twitter:description"
+          content="Open source map based video sharing social app created with Flutter, Supabase and lots of love."
         />
+        <meta name="twitter:image" content={`${SITE_URL}/spot.jpg`} />
       </Head>
 
       <Layout>

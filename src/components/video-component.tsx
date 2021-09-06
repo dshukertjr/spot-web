@@ -14,7 +14,7 @@ export default function VideoComponent({
   useEffect(() => {
     const options = {
       rootMargin: '0px',
-      threshold: [0.25, 0.75],
+      threshold: [0.4, 0.6],
     }
 
     const handlePlay = (entries: IntersectionObserverEntry[]): void => {
@@ -35,25 +35,27 @@ export default function VideoComponent({
   })
 
   return (
-    <div className="relative my-12 rounded-xl overflow-hidden  aspect-w-9 aspect-h-16">
-      <div>
-        <video
-          autoPlay={autoPlay}
-          muted
-          ref={videoRef}
-          className="object-cover absolute inset-0 h-full"
-          src={video.url}
-        ></video>
-        <div className="absolute left-0 bottom-0 text-white p-2 bg-opacity-20 bg-black rounded-xl">
-          <div className="flex items-center">
-            <img
-              className="rounded-full w-10 h-10 object-cover"
-              src={video.users.image_url || '/img/user.svg'}
-              alt={video.users.name}
-            />
-            <div className="pl-2">{video.users.name}</div>
+    <div className="md:w-72 md:ml-auto">
+      <div className="relative my-12 rounded-xl overflow-hidden aspect-h-16 aspect-w-9 block mx-auto md:h-full">
+        <div>
+          <video
+            autoPlay={autoPlay}
+            muted
+            ref={videoRef}
+            className="object-cover absolute inset-0 h-full"
+            src={video.url}
+          ></video>
+          <div className="absolute left-0 bottom-0 text-white p-2 bg-opacity-20 bg-black rounded-xl">
+            <div className="flex items-center">
+              <img
+                className="rounded-full w-10 h-10 object-cover"
+                src={video.users.image_url || '/img/user.svg'}
+                alt={video.users.name}
+              />
+              <div className="pl-2">{video.users.name}</div>
+            </div>
+            <div className="pt-2">{video.description}</div>
           </div>
-          <div className="pt-2">{video.description}</div>
         </div>
       </div>
     </div>

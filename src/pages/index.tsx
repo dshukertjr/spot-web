@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/media-has-caption */
+import { createClient } from '@supabase/supabase-js'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import React, { ReactElement } from 'react'
 import Layout from '../components/layout'
 import VideoComponent from '../components/video-component'
 import { Video } from '../models/video'
-import { SITE_NAME, supabase } from '../util/constants'
+import { SITE_NAME } from '../util/constants'
 
 export default function Home({ videos }: { videos: Video[] }): ReactElement {
   return (
@@ -21,9 +22,7 @@ export default function Home({ videos }: { videos: Video[] }): ReactElement {
           {videos.map((video) => {
             return (
               <div key={video.id} className="md:flex-grow md:w-1/2">
-                <div className="md:w-5/6">
-                  <VideoComponent video={video}></VideoComponent>
-                </div>
+                <VideoComponent video={video}></VideoComponent>
               </div>
             )
           })}
@@ -34,6 +33,8 @@ export default function Home({ videos }: { videos: Video[] }): ReactElement {
 }
 
 export const getServerSideProps: GetStaticProps = async () => {
+  const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_KEY!)
+
   const { data, error } = await supabase
     .from('videos')
     .select('id, url, description, users!fk_users ( name, image_url )')

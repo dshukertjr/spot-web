@@ -24,6 +24,11 @@ export default function Post({ video }: { video: Video }): ReactElement {
         </title>
         <meta name="description" content={video.description} />
         <link rel="icon" href="/favicon.ico" />
+        <meta property="og:url" content="https://spotvideo.app/" key="ogurl" />
+        <meta property="og:image" content={video.image_url} key="ogimage" />
+        <meta property="og:site_name" content={SITE_NAME} key="ogsitename" />
+        <meta property="og:title" content={SITE_NAME} key="ogtitle" />
+        <meta property="og:description" content={video.description} key="ogdesc" />
       </Head>
 
       <Layout>
@@ -42,7 +47,7 @@ export const getServerSideProps: GetStaticProps = async (context) => {
 
   const { data, error } = await supabase
     .from('videos')
-    .select('id, url, description, users!fk_users ( name, image_url )')
+    .select('id, url, image_url, description, users!fk_users ( name, image_url )')
     .eq('id', videoId)
     .single()
 

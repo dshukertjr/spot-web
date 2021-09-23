@@ -54,6 +54,18 @@ export default function Layout({ children }: React.PropsWithChildren<unknown>): 
             <img className="block h-12" src="/img/android.svg" alt="Google Play download button" />
           </a>
         </div>
+        <a
+          href="https://www.producthunt.com/posts/spot-2d300f54-7a0a-4dbf-aee2-4a75311217cc?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-spot-2d300f54-7a0a-4dbf-aee2-4a75311217cc"
+          target="_blank"
+          rel="noreferrer"
+          className="block mt-4"
+        >
+          <img
+            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=297952&theme=light"
+            alt="Spot - Map-based video sharing app | Product Hunt"
+            className="h-12"
+          />
+        </a>
       </div>
 
       <header className="fixed left-4 top-4 md:left-12 md:top-8">

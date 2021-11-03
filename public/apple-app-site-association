@@ -1,0 +1,11 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "Z6UYZY8QU4.app.spotvideo",
+                "paths": [ "/post/*" ]
+            }
+        ]
+    }
+}

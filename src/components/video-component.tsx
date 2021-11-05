@@ -26,10 +26,12 @@ export default function VideoComponent({
     const handlePlay = (entries: IntersectionObserverEntry[]): void => {
       if (!autoPlay) {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            videoRef?.current?.play()
-          } else {
-            videoRef?.current?.pause()
+          if (!isIos) {
+            if (entry.isIntersecting) {
+              videoRef?.current?.play()
+            } else {
+              videoRef?.current?.pause()
+            }
           }
         })
       }

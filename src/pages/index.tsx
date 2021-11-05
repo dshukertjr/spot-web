@@ -54,7 +54,7 @@ export const getServerSideProps: GetStaticProps = async () => {
 
   const { data, error } = await supabase
     .from('videos')
-    .select('id, url, description, users!fk_users ( name, image_url )')
+    .select('id, url, description, image_url, users!fk_users ( name, image_url )')
     .order('created_at', { ascending: false })
     .limit(12)
 

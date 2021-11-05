@@ -1,0 +1,9 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.spotvideo",
+      "sha256_cert_fingerprints":
+      ["15:07:5E:71:27:DA:4F:86:6D:10:C7:FB:24:AB:E8:D5:F2:53:2D:3C:81:58:40:C4:21:17:88:45:E2:DA:2D:0C"]
+    }
+  }]

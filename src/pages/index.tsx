@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import { createClient } from '@supabase/supabase-js'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import React, { ReactElement } from 'react'
 import Layout from '../components/layout'
@@ -49,7 +49,16 @@ export default function Home({ videos }: { videos: Video[] }): ReactElement {
   )
 }
 
-export const getServerSideProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+  // This value is considered fresh for 60 seconds (s-maxage=60).
+  // If a request is repeated within the next 10 seconds, the previously
+  // cached value will still be fresh. If the request is repeated before 119 seconds,
+  // the cached value will be stale but still render (stale-while-revalidate=119).
+  //
+  // In the background, a revalidation request will be made to populate the cache
+  // with a fresh value. If you refresh the page, you will see the new value.
+  res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=119')
+
   const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_KEY!)
 
   const { data, error } = await supabase

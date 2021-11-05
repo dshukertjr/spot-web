@@ -48,7 +48,7 @@ export default function VideoComponent({
         <div>
           {isIos ? (
             <img
-              className="rounded-full w-10 h-10 object-cover"
+              className="object-cover absolute inset-0 h-full"
               src={video.image_url}
               alt={video.description}
             />
